@@ -22,7 +22,7 @@ public class HomeControllerIntegrationTests {
 
 	@Test
 	public void home() {
-		String body = new TestRestTemplate("user", "user").getForObject("http://localhost:" + port, String.class);
+		String body = new TestRestTemplate("goto", "goto").getForObject("http://localhost:" + port, String.class);
 		assertThat(body,  is(equalTo("Hello, Amsterdam")));
 	}
 
