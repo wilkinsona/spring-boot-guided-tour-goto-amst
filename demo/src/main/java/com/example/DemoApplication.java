@@ -17,4 +17,15 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	@Bean
+	public HealthIndicator gotoHealthIndicator() {
+		Random random = new Random();
+		return () -> {
+			if (random.nextBoolean()) {
+				return Health.up().build();
+			}
+			return Health.down().build();
+		};
+	}
+
 }
